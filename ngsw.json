@@ -1,0 +1,87 @@
+{
+  "configVersion": 1,
+  "timestamp": 1762900863245,
+  "appData": {
+    "version": 1
+  },
+  "index": "/hegemony/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/hegemony/favicon.ico",
+        "/hegemony/index.html",
+        "/hegemony/main-GBRJCOML.js",
+        "/hegemony/manifest.webmanifest",
+        "/hegemony/styles-MR6MGMSQ.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/hegemony/crisis-and-control-box.webp",
+        "/hegemony/hegemony-box.webp",
+        "/hegemony/hegemony.ttf",
+        "/hegemony/media/hegemony-GEPDFR7Z.ttf"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api",
+      "patterns": [
+        "\\/api\\/.*"
+      ],
+      "strategy": "performance",
+      "maxSize": 50,
+      "maxAge": 86400000,
+      "timeoutMs": 5000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/hegemony/crisis-and-control-box.webp": "a79454f482fa51e9557433e80383550d1aeccbfe",
+    "/hegemony/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "/hegemony/hegemony-box.webp": "c58b667e746893b0fce29ab1a242c8dae2352221",
+    "/hegemony/hegemony.ttf": "ab2465fdfaeb6883121d64ae9f64b93fae536f71",
+    "/hegemony/index.html": "f418f21f6d454d5290f695e20c2ae0b8fd540f30",
+    "/hegemony/main-GBRJCOML.js": "3607a2a87a5fb6d2592db8ea0725419f5c560d81",
+    "/hegemony/manifest.webmanifest": "85b70da79f62fc176300d5de3dbde69d04cf1871",
+    "/hegemony/media/hegemony-GEPDFR7Z.ttf": "ab2465fdfaeb6883121d64ae9f64b93fae536f71",
+    "/hegemony/styles-MR6MGMSQ.css": "288211eb204dc27fca3b215c978836b3a9144d4b"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
