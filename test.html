@@ -1,0 +1,111 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="my-input" type="text" placeholder="dd-mm-jjjj" />
+    <script>
+      const element = document.getElementById('my-input');
+
+      function formatDateDigits(digits) {
+        const cleaned = digits.replace(/\D/g, '').slice(0, 8); // max 8 digits: ddmmyyyy
+        const parts = [];
+
+        if (cleaned.length > 0) {
+          parts.push(cleaned.substring(0, Math.min(2, cleaned.length)));
+        }
+        if (cleaned.length > 2) {
+          parts.push(cleaned.substring(2, Math.min(4, cleaned.length)));
+        }
+        if (cleaned.length > 4) {
+          parts.push(cleaned.substring(4));
+        }
+
+        return parts.join('-');
+      }
+
+      function mapDigitIndexToFormattedPos(digitIndex) {
+        if (digitIndex <= 2) {
+          return digitIndex;
+        } else if (digitIndex <= 4) {
+          return digitIndex + 1;
+        } else {
+          return digitIndex + 2;
+        }
+      }
+
+      function countDigitsBeforeCaret(formattedValue, caretPos) {
+        const substring = formattedValue.slice(0, caretPos);
+        const digitsOnly = substring.replace(/\D/g, '');
+        return digitsOnly.length;
+      }
+
+      element.addEventListener('input', function (e) {
+        const input = e.target;
+        const rawValue = input.value;
+        const selectionStart = input.selectionStart;
+
+        const prevDigitsBeforeCaret = countDigitsBeforeCaret(rawValue, selectionStart);
+
+        const digits = rawValue.replace(/\D/g, '').slice(0, 8);
+        const formatted = formatDateDigits(digits);
+
+        input.value = formatted;
+
+        const newDigitIndex = prevDigitsBeforeCaret;
+        let newCaretPos = mapDigitIndexToFormattedPos(newDigitIndex);
+
+        if (newCaretPos > formatted.length) {
+          newCaretPos = formatted.length;
+        }
+
+        input.setSelectionRange(newCaretPos, newCaretPos);
+      });
+
+      element.addEventListener('keydown', function (e) {
+        const allowedKeys = [
+          'Backspace',
+          'Delete',
+          'ArrowLeft',
+          'ArrowRight',
+          'ArrowUp',
+          'ArrowDown',
+          'Tab',
+          'Home',
+          'End',
+          'Enter'
+        ];
+
+        if (
+          allowedKeys.includes(e.key) ||
+          e.ctrlKey ||
+          e.metaKey // allow copy/paste/select all etc.
+        ) {
+          return;
+        }
+
+        // Prevent non-digits (we'll insert '-')
+        if (!/^\d$/.test(e.key)) {
+          e.preventDefault();
+          return;
+        }
+
+        // At this point, user is typing a digit.
+        // If there are already 8 digits AND user is not replacing any selection,
+        // block the input.
+        const value = element.value;
+        const digits = value.replace(/\D/g, '');
+        const selectionStart = element.selectionStart ?? 0;
+        const selectionEnd = element.selectionEnd ?? selectionStart;
+        const isReplacing = selectionEnd > selectionStart;
+
+        if (digits.length >= 8 && !isReplacing) {
+          e.preventDefault();
+          return;
+        }
+      });
+    </script>
+  </body>
+</html>
