@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1764543940855,
+  "timestamp": 1764544738657,
   "index": "/hegemony/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/hegemony/favicon.ico",
         "/hegemony/index.html",
-        "/hegemony/main-JSWJQOY5.js",
+        "/hegemony/main-DJNK7OQS.js",
         "/hegemony/manifest.webmanifest",
         "/hegemony/styles-ESOH2GRG.css"
       ],
@@ -59,8 +59,8 @@
     "/hegemony/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "/hegemony/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
     "/hegemony/icons/protest.svg": "d44e3521a7ad8224ec7cbe3c8a3b84e14eb4edd7",
-    "/hegemony/index.html": "ab5cf802ddd31af71f7b173dd67ab2519a54055c",
-    "/hegemony/main-JSWJQOY5.js": "e7951e8a2ab80b5603783477191242a45a09bb0c",
+    "/hegemony/index.html": "a8f2ce94560eea90f35195b202c6f43054d46205",
+    "/hegemony/main-DJNK7OQS.js": "50950659e073f5401052cf8b27e19e3d4186fe85",
     "/hegemony/manifest.webmanifest": "df9c9b6430a813a300f75441310208d2b632d599",
     "/hegemony/media/hegemony-GEPDFR7Z.ttf": "ab2465fdfaeb6883121d64ae9f64b93fae536f71",
     "/hegemony/styles-ESOH2GRG.css": "b63693fb037c6d0d5ee7594decdecbc103cd1e78"
